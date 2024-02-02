@@ -4,10 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './routes/app.routes';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { MoviesListComponent } from './components/movies-list/movies-list.component';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopBarComponent,
+    MoviesListComponent,
+    MovieItemComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +23,9 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
   providers: [],
   bootstrap: [
     AppComponent,
-    TopBarComponent
+    TopBarComponent,
+    MoviesListComponent,
+    MovieItemComponent
   ]
 })
 export class AppModule { }
