@@ -1,5 +1,12 @@
 <section>
-    <ul>
-        <app-movie-item></app-movie-item>
-    </ul>
+    <form>
+        <div class="row mt-3 mb-5">
+            <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}" class="form-control mr-sm-2 search" type="search" placeholder="Pesquisar pelo nome do filme ou série" aria-label="Pesquisar">
+            <button (click)="pesquisar()" class="btn btn-outline-primary my-2 my-sm-0" type="button">Pesquisar</button>
+        </div>
+    </form>
+    <div class="mb-5">
+        <h1>Resultado</h1>
+        <app-movie-item [movie]="movie"></app-movie-item>
+    </div>
 </section>

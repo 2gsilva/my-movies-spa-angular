@@ -5,6 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.css']
 })
-export class MoviesListComponent {
+
+export class MoviesListComponent {  
+  search: string = '';
+  movie: string = '';
+
+  pesquisar() {
+    this.movie = this.search;
+  }
 
 }

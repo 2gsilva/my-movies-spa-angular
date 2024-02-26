@@ -7,8 +7,12 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { HomeComponent } from './views/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieService } from './services/movie.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
+  // Declaração dos componentes
   declarations: [
     AppComponent,
     TopBarComponent,
@@ -16,16 +20,19 @@ import { HomeComponent } from './views/home/home.component';
     MovieItemComponent,
     HomeComponent
   ],
+  // Importação dos módulos
   imports: [
     BrowserModule,
-    AppRoutes
+    AppRoutes,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  // Injeção dos serviços do módulo
+  providers: [
+    MovieService 
+  ],
   bootstrap: [
-    AppComponent,
-    TopBarComponent,
-    MoviesListComponent,
-    MovieItemComponent
+    AppComponent
   ]
 })
 export class AppModule { }

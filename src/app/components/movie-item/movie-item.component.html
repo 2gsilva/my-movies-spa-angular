@@ -1,10 +1,18 @@
-<li>
-    <div class="card item-card mt-5">
-        <img class="card-img-top" src="../../../assets/simpsons.png" alt="Imagem de capa do card">
-        <div class="card-body">
-          <h5 class="card-title">Os Simpsons</h5>
-          <p class="card-text">Um exemplo de texto rápido para construir o título do card.</p>
-          <!-- <a href="#" class="btn btn-primary">Visitar</a> -->
-        </div>
+<div class="row">
+  <div *ngFor="let movie of movies">
+    <div class="col">
+      <div class="card item-card mt-5">
+          <img class="card-img-top" [src]="movie.poster" alt="Imagem de capa do card" width="300" height="250">
+          <div class="card-body">
+            <p class="card-title">
+              {{movie.title}}<br>
+            </p>
+            <p class="card-text">
+              <b>Ano: </b>{{movie.year}}
+            </p>
+            <a href="#" class="btn btn-primary">Adicionar aos Favoritos</a>
+          </div>
+      </div>
     </div>
-</li>
+</div>
+</div>
