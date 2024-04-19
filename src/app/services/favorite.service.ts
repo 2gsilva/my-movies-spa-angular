@@ -1,9 +1,10 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Movie } from "../shared/movie.model";
 
 @Injectable()
-export class MovieService {
+export class FavoriteService {
     private httpOption = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -16,8 +17,13 @@ export class MovieService {
         this.apiUrl = 'https://localhost:7076/api';
     }
 
-    getMovies(movie : string) : Observable<any>{
-        let endpoint = `${this.apiUrl}/v1/movies/${movie}`;
+    addFavorites(movie : Movie) : Observable<any>{
+        let endpoint = `${this.apiUrl}/v1/favorites`;
+        return this._httpClient.post(endpoint, movie, this.httpOption);
+    }
+
+    getFavorites() : Observable<any>{
+        let endpoint = `${this.apiUrl}/v1/favorites`;
         return this._httpClient.get(endpoint, this.httpOption);
     }
 }

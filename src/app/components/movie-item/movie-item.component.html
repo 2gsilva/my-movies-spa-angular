@@ -10,7 +10,9 @@
             <p class="card-text">
               <b>Ano: </b>{{movie.year}}
             </p>
-            <a href="#" class="btn btn-primary">Adicionar aos Favoritos</a>
+            <a class="btn btn-primary"
+              (click)="addFavorites(movie)"
+            > Adicionar aos Favoritos</a>
           </div>
       </div>
     </div>
