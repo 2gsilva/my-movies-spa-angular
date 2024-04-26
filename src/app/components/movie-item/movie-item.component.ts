@@ -17,7 +17,13 @@ export class MovieItemComponent {
     poster : string
   }[] = [];
 
-    message?: string;
+  movieSelected?: any;
+
+  message?: string;
+
+  descricao?: string;
+
+  avaliacao?: number;
 
   constructor(
     private _movieService : MovieService,
@@ -45,11 +51,15 @@ export class MovieItemComponent {
       );
   }
 
-  addFavorites(movie : any): void {
+  selectMovie(movie : any){
+    this.movieSelected = movie;
+  }
+
+  addFavorites(): void {
     let favorite : any = {
-      search :  movie,
-      avaliacao : null,
-      descricao : null
+      search :  this.movieSelected,
+      avaliacao : this.avaliacao,
+      descricao : this.descricao
     } ;
 
     this._favoriteService

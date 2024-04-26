@@ -5,10 +5,16 @@
           <img class="card-img-top" [src]="favorite?.search?.poster" alt="Imagem de capa do card" width="300" height="250">
           <div class="card-body">
             <p class="card-title">
-              {{favorite?.search?.title}}<br>
+              <b>Título: </b>{{favorite?.search?.title}}<br>
             </p>
             <p class="card-text">
               <b>Ano: </b>{{favorite?.search?.year}}
+            </p>
+            <p class="card-text">
+              <b>Descrição: </b>{{favorite?.descricao}}
+            </p>
+            <p class="card-text">
+              <b>Avaliação: </b>{{favorite?.avaliacao}}
             </p>
           </div>
       </div>
