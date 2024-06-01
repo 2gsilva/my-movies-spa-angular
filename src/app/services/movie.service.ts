@@ -1,23 +1,13 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { BaseService } from "./base.service";
 
 @Injectable()
-export class MovieService {
-    private httpOption = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-        })
-    };
-      
-    private readonly apiUrl : string;
-
-    constructor( private _httpClient: HttpClient) {
-        this.apiUrl = 'https://localhost:7076/api';
-    }
-
+export class MovieService extends BaseService {  
+    
     getMovies(movie : string) : Observable<any>{
-        let endpoint = `${this.apiUrl}/v1/movies/${movie}`;
+        let endpoint = `${this.getApiUrl()}/api/v1/movies/${movie}`;
         return this._httpClient.get(endpoint, this.httpOption);
     }
 }
