@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { MovieService } from 'src/app/services/movie.service';
+import { MovieModel } from 'src/app/shared/models/movie.model';
 
 @Component({
   selector: 'app-movie-item',
@@ -10,12 +11,7 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieItemComponent {
   @Input('movie') movie!: string;
   
-  movies: {
-    id : string,
-    title : string,
-    year : string,
-    poster : string
-  }[] = [];
+  movies: MovieModel[] = [];
 
   movieSelected?: any;
 
