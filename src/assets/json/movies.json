@@ -1,8 +1,14 @@
 [
     {
-        "id" : "123",
+        "id" : "1",
         "title" : "Os Simpsons",
         "year" : "1900",
-        "poster" : "./img/simpsons.png" 
+        "poster" : "./assets/img/simpsons.png" 
+    },
+    {
+        "id" : "2",
+        "title" : "Pelé Eterno",
+        "year" : "1900",
+        "poster" : "./assets/img/pele_eterno.png" 
     }
 ]
