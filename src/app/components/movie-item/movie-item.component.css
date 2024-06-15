@@ -6,3 +6,10 @@ li{
     width: 20rem;
     height: 28rem;
 }
+.alerta{
+    font-size: 12px;
+    color: #f30808;
+}
+.obrigatorio{
+    color: #f30808;
+}

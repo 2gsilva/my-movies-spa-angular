@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { MovieService } from 'src/app/services/movie.service';
 import { MovieModel } from 'src/app/shared/models/movie.model';
@@ -17,14 +18,20 @@ export class MovieItemComponent {
 
   message?: string;
 
-  descricao?: string;
-
-  avaliacao?: number;
+  formulario!: FormGroup
 
   constructor(
     private _movieService : MovieService,
-    private _favoriteService: FavoriteService
+    private _favoriteService: FavoriteService,
+    private formBuilder: FormBuilder
   ) {};
+
+  ngOnInit(){
+    this.formulario = this.formBuilder.group({
+      descricao: ['', [Validators.required]],
+      avaliacao: ['', [Validators.min(0), Validators.max(4)]]
+    });
+  }
 
   ngOnChanges() {
     this.onMovieChange();
@@ -54,8 +61,8 @@ export class MovieItemComponent {
   addFavorites(): void {
     let favorite : any = {
       search :  this.movieSelected,
-      avaliacao : this.avaliacao,
-      descricao : this.descricao
+      avaliacao : this.formulario?.get("avaliacao")?.value,
+      descricao : this.formulario?.get("descricao")?.value
     } ;
 
     this._favoriteService

@@ -32,24 +32,37 @@
         </button>
       </div>
       <div class="modal-body">
-        Descrição
-        <input 
-          [(ngModel)]="descricao" 
-          [ngModelOptions]="{standalone: true}" 
-          class="form-control" 
-          type="text" 
-          placeholder="Insira uma breve descrição" 
-          aria-label="Descrição"
-        >
-        Avaliação
-        <input 
-          [(ngModel)]="avaliacao" 
-          [ngModelOptions]="{standalone: true}" 
-          class="form-control" 
-          type="number" 
-          min="0"
-          max="4"
-        >
+        <form [formGroup]="formulario">
+          <div class="row p-2">
+            <label>
+              Descrição 
+              <span class="obrigatorio">*</span>
+            </label>
+            <input
+              id="nome" 
+              class="form-control" 
+              type="text" 
+              formControlName="descricao"
+              placeholder="Insira uma breve descrição" 
+              aria-label="Descrição"
+            >
+            <span class="alerta" *ngIf="formulario.get('descricao')?.touched && formulario.get('descricao')?.errors">Descrição obrigatório</span>
+          </div>  
+          <div class="row p-2">
+            <label>Avaliação</label>
+            <input 
+              class="form-control" 
+              type="number" 
+              formControlName="avaliacao"
+              min="0"
+              max="4"
+              [value]="formulario.get('avaliacao')?.errors ? 0 : formulario.get('avaliacao')?.value"
+            >
+          </div>
+        </form>
+      </div>
+      <div class="p-2">
+        Os campos com (<span class="obrigatorio">*</span>) são de preenchimento obrigatório.
       </div>
       <div class="modal-footer">
         <button 
@@ -58,7 +71,7 @@
           data-dismiss="modal"
         > Fechar </button>
         <button 
-          type="button"
+          type="submit"
           class="btn btn-primary"
           (click)="addFavorites()"
           data-dismiss="modal"
