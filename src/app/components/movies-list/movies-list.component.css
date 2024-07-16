@@ -1,3 +1,7 @@
 .search{
-    width: 80%;
+    width: 50%;
+    border-radius: 20px;
+}
+.row{
+    justify-content: center;
 }

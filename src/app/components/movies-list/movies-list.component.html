@@ -6,14 +6,22 @@
                 [ngModelOptions]="{standalone: true}" 
                 class="form-control mr-sm-2 search" 
                 type="search" 
-                placeholder="Pesquisar pelo nome do filme ou série" 
+                placeholder="Pesquise por Filmes e Séries" 
                 aria-label="Pesquisar"
+                aria-describedby="find"
+                (keyup.enter)="pesquisar()"
             >
-            <button (click)="pesquisar()" class="btn btn-outline-primary my-2 my-sm-0" type="button">Pesquisar</button>
+            <button 
+                class="btn btn-outline-secondary"
+                type="button"
+                (click)="pesquisar()"
+            >
+                <img id="find" src="../../../assets/img/search.svg" width="15" height="15" alt="Ícone de Pesquisa">
+            </button>
         </div>
     </form>
     <div class="mb-5">
-        <h1>Resultado</h1>
+        <h1>Filmes / Séries</h1>
         <app-movie-item
             [movie]="movie">
         </app-movie-item>
