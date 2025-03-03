@@ -1,29 +1,18 @@
 <section>
     <form>
         <div class="row mt-3 mb-5">
-            <input 
-                [(ngModel)]="search" 
-                [ngModelOptions]="{standalone: true}" 
-                class="form-control mr-sm-2 search" 
-                type="search" 
-                placeholder="Pesquise por Filmes e Séries" 
-                aria-label="Pesquisar"
-                aria-describedby="find"
-                (keyup.enter)="pesquisar()"
-            >
-            <!-- <button 
-                class="btn btn-outline-secondary"
-                type="button"
-                (click)="pesquisar()"
-            >
-                <img id="find" src="../../../assets/img/search.svg" width="15" height="15" alt="Ícone de Pesquisa">
-            </button> -->
+            <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}" class="form-control mr-sm-2 search"
+                type="search" placeholder="Pesquise por Filmes e Séries" aria-label="Pesquisar" aria-describedby="find"
+                (keyup.enter)="pesquisar()">
         </div>
     </form>
     <div class="mb-5">
-        <h1>Filmes / Séries</h1>
-        <app-movie-item
-            [movie]="movie">
-        </app-movie-item>
+        <div class="card">
+            <div class="card-body">
+                <h1>Filmes & Séries</h1>
+                <app-movie-item [movie]="movie">
+                </app-movie-item>
+            </div>
+        </div>
     </div>
 </section>
